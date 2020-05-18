@@ -346,7 +346,7 @@ summary {
 
 
 
-<script type="text/javascript" src="./CMSC 320 Final Project_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+<script type="text/javascript" src="./index_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
 .MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
 .MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
 .MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
@@ -1045,7 +1045,9 @@ linear_model_tidy</code></pre>
 <h4>Alternative Models</h4>
 <p><a href="file:///Users/Annaliese/Downloads/CMSC320-Final-Project--4-.html#index">(Back to index)</a></p>
 <p>We also want to create some other possibly effective models to compare with our original model to determine which model is most accurate.</p>
-<p><strong>Simple Linear Regression Model</strong> {#slrm} <a href="file:///Users/Annaliese/Downloads/CMSC320-Final-Project--4-.html#index">(Back to index)</a></p>
+<div id="slrm" class="section level5">
+<h5><strong>Simple Linear Regression Model</strong></h5>
+<p><a href="file:///Users/Annaliese/Downloads/CMSC320-Final-Project--4-.html#index">(Back to index)</a></p>
 <p>We create a linear regression model on a fewer number of our seemingly most important attributes: bathrooms, room_type, accommodates, and manyListings. This choice is based on our hypothesis test for the last model. We do this because adding attributes that do not correlate strongly with price can have a negative effect on our model. As a result, it is helpful to compare a complicated model with a simpler model.</p>
 <pre class="r"><code class="hljs"><span class="hljs-comment">#creating a second linear regression model </span>
 linear_model_simple &lt;- lm(price~bathrooms+room_type+accommodates+manyListings, data=df)
@@ -1065,7 +1067,11 @@ linear_model_simple_tidy</code></pre>
 <div id="model-analysis---hypothesis-testing-1" class="section level6">
 <h6>Model Analysis - Hypothesis Testing:</h6>
 <p>Now that we have removed the less significantly important variables, all of our variables’ have p-values are less than .05.</p>
-<p><strong>Filtered Linear Regression Model</strong>{#flrm} <a href="file:///Users/Annaliese/Downloads/CMSC320-Final-Project--4-.html#index">(Back to index)</a></p>
+</div>
+</div>
+<div id="flrm" class="section level5">
+<h5><strong>Filtered Linear Regression Model</strong></h5>
+<p><a href="file:///Users/Annaliese/Downloads/CMSC320-Final-Project--4-.html#index">(Back to index)</a></p>
 <p>To build our second alternatve model we train our model on all listings that accomodate 8 or less people. This is in an effort to not train on outlier data. Training the model on more typical data points, while lowering accuracy to predict outlier data, will increase the precision of predicitng a more typical data point. This is a trade-off that we can examine by comparing our original model to this filtered model to determine if the trade-off increases accuracy in the end.</p>
 <pre class="r"><code class="hljs"><span class="hljs-comment">#filtering the dataframe to only include listings that accommodate 8 or less </span>
 filtered_df &lt;- df %&gt;%
@@ -1087,10 +1093,10 @@ linear_model_filter_tidy</code></pre>
 ## 7 accommodates            8.92      0.456     19.6   2.53e-81
 ## 8 manyListingsTRUE        2.93      1.40       2.10  3.62e- 2
 ## 9 availability_60         0.0194    0.0274     0.709 4.78e- 1</code></pre>
-</div>
 <div id="model-analysis---hypothesis-testing-2" class="section level6">
 <h6>Model Analysis - Hypothesis Testing</h6>
 <p>Like our original model all variables except is_real_bed and accommodates have p-values less than .05 and are statistically significant.</p>
+</div>
 </div>
 </div>
 </div>
